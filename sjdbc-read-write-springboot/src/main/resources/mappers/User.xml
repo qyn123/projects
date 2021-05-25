@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxytiandi.sjdbc.repository.UserRepository">
+    
+    <resultMap id="baseResultMap" type="com.cxytiandi.sjdbc.po.User">
+        <result column="id" property="id" />
+        <result column="city" property="city" />
+        <result column="name" property="name" />
+    </resultMap>
+    
+    <insert id="addUser">
+        INSERT INTO user (
+          id, city, name
+        )
+        VALUES (
+        #{id},
+        #{city},
+        #{name}
+        )
+    </insert>
+   
+    <select id="list" resultMap="baseResultMap">
+        SELECT u.* FROM user u
+    </select>
+
+</mapper>
